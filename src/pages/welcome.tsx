@@ -13,7 +13,7 @@ import colors from "../styles/colors";
 
 interface Props {}
 
-const Welcome = () => {
+export default function Welcome() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>
@@ -23,8 +23,8 @@ const Welcome = () => {
       <Image style={styles.image} source={wateringImg} />
 
       <Text style={styles.subtitle}>
-        Never again forget water your plants! We're here to remind you whenever
-        it's necessary
+        Never again forget water your plants again! We're here to remind you
+        whenever necessary.
       </Text>
 
       <TouchableOpacity style={styles.button} activeOpacity={0.7}>
@@ -32,9 +32,7 @@ const Welcome = () => {
       </TouchableOpacity>
     </SafeAreaView>
   );
-};
-
-export default Welcome;
+}
 
 const styles = StyleSheet.create({
   container: {
