@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  Dimensions,
 } from "react-native";
 
 import wateringImg from "../assets/watering.png";
@@ -20,11 +21,11 @@ export default function Welcome() {
         Keeping your {"\n"} plants happy{"\n"} couldn't be easier
       </Text>
 
-      <Image style={styles.image} source={wateringImg} />
+      <Image style={styles.image} source={wateringImg} resizeMode="contain" />
 
       <Text style={styles.subtitle}>
-        Never again forget water your plants again! We're here to remind you
-        whenever necessary.
+        Never forget water your plants again!{"\n"}We're here to remind you
+        whenever you need.
       </Text>
 
       <TouchableOpacity style={styles.button} activeOpacity={0.7}>
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
   title: {
     fontSize: 32,
@@ -52,6 +53,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     color: colors.heading,
   },
+  image: {
+    width: 292,
+    height: Dimensions.get("window").width * 0.8,
+  },
   button: {
     backgroundColor: colors.green,
     justifyContent: "center",
@@ -64,10 +69,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 24,
     color: "#fff",
-  },
-  image: {
-    width: 292,
-    height: 284,
   },
 });
 
