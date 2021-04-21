@@ -20,7 +20,7 @@ export default function Confirmation() {
       </View>
 
       <View style={styles.footer}>
-        <AppButton text="Let's go" />
+        <AppButton title="Let's go" />
       </View>
     </SafeAreaView>
   );
