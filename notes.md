@@ -47,8 +47,6 @@ export default function App() {
 
 // o AppLoading segura a splashScreen por mais tempo enquanto as fontes ainda não carregaram
 
-# TextInput,
-
 # KeyboardAvoidingView
 
 # Platform
@@ -58,4 +56,19 @@ export default function App() {
         style={styles.container}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
 	    >
+```
+
+# TextInput
+
+```
+	<TextInput
+		style={[
+			styles.input,
+			(isFocused || isFilled) && { borderColor: colors.green },
+		]}
+		placeholder="Your Name"
+		onBlur={handleInputBlur}
+		onFocus={handleInputFocus}
+		onChangeText={handleInputChange} // passa o valor de texto pra function chamada
+	/>
 ```
