@@ -8,10 +8,12 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Platform,
+  Keyboard,
 } from "react-native";
 import AppButton from "../components/AppButton";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 interface Props {}
 
@@ -44,30 +46,32 @@ export default function UserIdentification() {
         style={styles.container}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <View style={styles.content}>
-          <View style={styles.form}>
-            <View style={styles.header}>
-              <Text style={styles.title}>How can we{"\n"} call you?</Text>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.content}>
+            <View style={styles.form}>
+              <View style={styles.header}>
+                <Text style={styles.title}>How can we{"\n"} call you?</Text>
 
-              <Text style={styles.emoji}>{isFilled ? "😄" : "😀"}</Text>
-            </View>
+                <Text style={styles.emoji}>{isFilled ? "😄" : "😀"}</Text>
+              </View>
 
-            <TextInput
-              style={[
-                styles.input,
-                (isFocused || isFilled) && { borderColor: colors.green },
-              ]}
-              placeholder="Your Name"
-              onBlur={handleInputBlur}
-              onFocus={handleInputFocus}
-              onChangeText={handleInputChange}
-            />
+              <TextInput
+                style={[
+                  styles.input,
+                  (isFocused || isFilled) && { borderColor: colors.green },
+                ]}
+                placeholder="Your Name"
+                onBlur={handleInputBlur}
+                onFocus={handleInputFocus}
+                onChangeText={handleInputChange}
+              />
 
-            <View style={styles.footer}>
-              <AppButton title="confirm" onPress={handleSubmit} />
+              <View style={styles.footer}>
+                <AppButton title="confirm" onPress={handleSubmit} />
+              </View>
             </View>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

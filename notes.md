@@ -88,3 +88,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 repara o uso particular desses dois caras dentro da pasta routes
+
+# TouchableWithoutFeedback
+
+bom pra tirar o teclado com
+
+onPress={Keybord.dismiss}
