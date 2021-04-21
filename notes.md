@@ -46,3 +46,16 @@ export default function App() {
 ```
 
 // o AppLoading segura a splashScreen por mais tempo enquanto as fontes ainda não carregaram
+
+# TextInput,
+
+# KeyboardAvoidingView
+
+# Platform
+
+```
+     <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+	    >
+```

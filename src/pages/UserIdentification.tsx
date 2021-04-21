@@ -1,5 +1,14 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, TextInput } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
+import AppButton from "../components/AppButton";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
@@ -8,17 +17,26 @@ interface Props {}
 export default function UserIdentification() {
   return (
     <SafeAreaView style={styles.container}>
-      {/*  */}
-      <View style={styles.content}>
-        <View style={styles.form}>
-          <Text style={styles.title}>How can we{"\n"} call you?</Text>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
+        <View style={styles.content}>
+          <View style={styles.form}>
+            <View style={styles.header}>
+              <Text style={styles.title}>How can we{"\n"} call you?</Text>
 
-          <Text style={styles.emoji}>🤔</Text>
+              <Text style={styles.emoji}>🤔</Text>
+            </View>
 
-          <TextInput style={styles.input} />
+            <TextInput style={styles.input} placeholder="Your Name" />
+
+            <View style={styles.footer}>
+              <AppButton text="confirm" />
+            </View>
+          </View>
         </View>
-      </View>
-      {/*  */}
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -34,6 +52,9 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     // paddingBottom: 50,
+  },
+  header: {
+    alignItems: "center",
   },
   form: {
     flex: 1,
@@ -62,4 +83,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {},
+  footer: {
+    width: "100%",
+    marginTop: 40,
+  },
 });
