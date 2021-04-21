@@ -72,3 +72,19 @@ export default function App() {
 		onChangeText={handleInputChange} // passa o valor de texto pra function chamada
 	/>
 ```
+
+# Navigation
+
+// DOCS AT -> https://reactnavigation.org/docs/getting-started
+// tem q instalar esse monte de coisa:
+
+**yarn add @react-navigation/native**
+
+**expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view**
+
+**yarn add @react-navigation/stack**
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+repara o uso particular desses dois caras dentro da pasta routes
