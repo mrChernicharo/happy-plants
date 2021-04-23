@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     width: 76,
     height: 40,
     borderRadius: 12,
-    marginRight: 6,
+    marginHorizontal: 6,
   },
   containerActive: {
     backgroundColor: colors.green_light,

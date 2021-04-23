@@ -32,12 +32,14 @@ const PlantSelect = () => {
   const [plants, setPlants] = useState<PlantProps[]>([]);
 
   async function fetchEnvs() {
-    const { data } = await api.get("plants_environments");
+    const { data } = await api.get(
+      "plants_environments?_sort=title&_order=asc"
+    );
     // console.log(data);
     setEnvironments([{ key: "all", title: "All" }, ...data]);
   }
   async function fetchPlants() {
-    const { data } = await api.get("plants");
+    const { data } = await api.get("plants?_sort=name&_order=asc");
     // console.log(data);
     setPlants(data);
   }
