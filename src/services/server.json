@@ -25,8 +25,44 @@
       }
     },
     {
+      "id": 21,
+      "name": "Aningapara 2",
+      "about": "É uma espécie tropical que tem crescimento rápido e fácil manuseio.",
+      "water_tips": "Mantenha a terra sempre húmida sem encharcar. Regue 2 vezes na semana.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/1.svg",
+      "environments": ["living_room", "kitchen"],
+      "frequency": {
+        "times": 2,
+        "repeat_every": "week"
+      }
+    },
+    {
       "id": 2,
       "name": "Zamioculca",
+      "about": "Apesar de florescer na primavera, fica o ano todo bonita e verdinha. ",
+      "water_tips": "Utilize vasos com furos e pedras no fundo para facilitar a drenagem. Regue 1 vez no dia.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/2.svg",
+      "environments": ["living_room", "bedroom"],
+      "frequency": {
+        "times": 1,
+        "repeat_every": "day"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Zamioculca 2",
+      "about": "Apesar de florescer na primavera, fica o ano todo bonita e verdinha. ",
+      "water_tips": "Utilize vasos com furos e pedras no fundo para facilitar a drenagem. Regue 1 vez no dia.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/2.svg",
+      "environments": ["living_room", "bedroom"],
+      "frequency": {
+        "times": 1,
+        "repeat_every": "day"
+      }
+    },
+    {
+      "id": 20,
+      "name": "Zamioculca 3",
       "about": "Apesar de florescer na primavera, fica o ano todo bonita e verdinha. ",
       "water_tips": "Utilize vasos com furos e pedras no fundo para facilitar a drenagem. Regue 1 vez no dia.",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/2.svg",
@@ -61,8 +97,44 @@
       }
     },
     {
-      "id": 5,
+      "id": 15,
       "name": "Espada São Jorge",
+      "about": "O aroma reduz os níveis de ansiedade e seu cheiro ajudar na qualidade do sono e a produtividade durante o dia.",
+      "water_tips": "Regue o solo ao redor. Regue 1 vez no dia.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/5.svg",
+      "environments": ["bedroom", "living_room"],
+      "frequency": {
+        "times": 1,
+        "repeat_every": "day"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Espada São Jorge 2",
+      "about": "O aroma reduz os níveis de ansiedade e seu cheiro ajudar na qualidade do sono e a produtividade durante o dia.",
+      "water_tips": "Regue o solo ao redor. Regue 1 vez no dia.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/5.svg",
+      "environments": ["bedroom", "living_room"],
+      "frequency": {
+        "times": 1,
+        "repeat_every": "day"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Espada São Jorge 3",
+      "about": "O aroma reduz os níveis de ansiedade e seu cheiro ajudar na qualidade do sono e a produtividade durante o dia.",
+      "water_tips": "Regue o solo ao redor. Regue 1 vez no dia.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/5.svg",
+      "environments": ["bedroom", "living_room"],
+      "frequency": {
+        "times": 1,
+        "repeat_every": "day"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Espada São Jorge 4",
       "about": "O aroma reduz os níveis de ansiedade e seu cheiro ajudar na qualidade do sono e a produtividade durante o dia.",
       "water_tips": "Regue o solo ao redor. Regue 1 vez no dia.",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/5.svg",
@@ -75,6 +147,18 @@
     {
       "id": 6,
       "name": "Yucca",
+      "about": "São indicadas pois são fáceis de manter e cuidar. Você colocar em pequenos vasos, ou até mesmo em xícaras.",
+      "water_tips": "Graças à reserva de água dessas verdinhas, é sempre melhor regar pouco. Regue 1 vez na semana.",
+      "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/6.svg",
+      "environments": ["kitchen", "bedroom"],
+      "frequency": {
+        "times": 1,
+        "repeat_every": "week"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Yucca 2",
       "about": "São indicadas pois são fáceis de manter e cuidar. Você colocar em pequenos vasos, ou até mesmo em xícaras.",
       "water_tips": "Graças à reserva de água dessas verdinhas, é sempre melhor regar pouco. Regue 1 vez na semana.",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/6.svg",
@@ -126,7 +210,7 @@
       "about": "A hortênsia é uma planta rústica e se adapta a diferentes tipos de solos.",
       "water_tips": "Mantenha a terra sempre húmida sem encharcar. Regue 1 vez no dia.",
       "photo": "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/2.svg",
-      "environments": ["bathroom"],
+      "environments": ["bathroom", "bedroom"],
       "frequency": {
         "times": 1,
         "repeat_every": "day"

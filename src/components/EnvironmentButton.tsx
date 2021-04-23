@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     width: 76,
     height: 40,
     borderRadius: 12,
-    marginHorizontal: 10,
+    marginHorizontal: 3,
   },
   containerActive: {
     backgroundColor: colors.green_light,

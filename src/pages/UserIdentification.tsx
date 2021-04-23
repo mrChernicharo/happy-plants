@@ -10,11 +10,13 @@ import {
   Platform,
   Keyboard,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import AppButton from "../components/AppButton";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface Props {}
 
@@ -25,8 +27,10 @@ export default function UserIdentification() {
 
   const navigation = useNavigation();
 
-  function handleSubmit() {
-    console.log("handle submit");
+  async function handleSubmit() {
+    if (!name) return Alert.alert("Please tell me your name 😅");
+
+    await AsyncStorage.setItem("@happyplants:user", name);
     navigation.navigate("Confirmation");
   }
 

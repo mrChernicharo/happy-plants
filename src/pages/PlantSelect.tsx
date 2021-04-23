@@ -93,7 +93,6 @@ const PlantSelect = () => {
   useEffect(() => {
     fetchEnvs();
     fetchPlants();
-    return undefined;
   }, []);
 
   return isLoading ? (
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: "center",
     paddingBottom: 5,
-    marginLeft: 32,
+    marginLeft: 42,
     marginVertical: 32,
   },
   plantslist: {
