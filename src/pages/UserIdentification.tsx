@@ -56,19 +56,18 @@ export default function UserIdentification() {
 
                 <Text style={styles.emoji}>{isFilled ? "😄" : "😀"}</Text>
               </View>
-
-              <TextInput
-                style={[
-                  styles.input,
-                  (isFocused || isFilled) && { borderColor: colors.green },
-                ]}
-                placeholder="Your Name"
-                onBlur={handleInputBlur}
-                onFocus={handleInputFocus}
-                onChangeText={handleInputChange}
-              />
             </TouchableWithoutFeedback>
 
+            <TextInput
+              style={[
+                styles.input,
+                (isFocused || isFilled) && { borderColor: colors.green },
+              ]}
+              placeholder="Your Name"
+              onBlur={handleInputBlur}
+              onFocus={handleInputFocus}
+              onChangeText={handleInputChange}
+            />
             <View style={styles.footer}>
               <AppButton title="confirm" onPress={handleSubmit} />
             </View>
@@ -124,5 +123,7 @@ const styles = StyleSheet.create({
   footer: {
     width: "100%",
     marginTop: 40,
+    zIndex: 100,
+    position: "relative",
   },
 });
