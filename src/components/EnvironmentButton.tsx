@@ -12,19 +12,12 @@ interface EnvBtnProps extends RectButtonProps {
 }
 
 const EnvironmentButton = ({ title, active = false, ...rest }: EnvBtnProps) => {
-  const [isActive, setIsActive] = useState<boolean>(active);
-
-  function handlePress() {
-    setIsActive(!isActive);
-  }
-
   return (
     <RectButton
-      style={[styles.container, isActive && styles.containerActive]}
-      onPress={handlePress}
+      style={[styles.container, active && styles.containerActive]}
       {...rest}
     >
-      <Text style={[styles.text, isActive && styles.textActive]}>{title}</Text>
+      <Text style={[styles.text, active && styles.textActive]}>{title}</Text>
     </RectButton>
   );
 };
@@ -39,7 +32,7 @@ const styles = StyleSheet.create({
     width: 76,
     height: 40,
     borderRadius: 12,
-    marginHorizontal: 6,
+    marginHorizontal: 10,
   },
   containerActive: {
     backgroundColor: colors.green_light,

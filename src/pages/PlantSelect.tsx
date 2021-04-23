@@ -30,6 +30,11 @@ interface PlantProps {
 const PlantSelect = () => {
   const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
   const [plants, setPlants] = useState<PlantProps[]>([]);
+  const [envSelected, setEnvSelected] = useState("all");
+
+  function handleEnvSelected(key: string) {
+    setEnvSelected(key);
+  }
 
   async function fetchEnvs() {
     const { data } = await api.get(
@@ -64,7 +69,12 @@ const PlantSelect = () => {
           contentContainerStyle={styles.envslist}
           data={environments}
           renderItem={({ item }) => (
-            <EnvironmentButton key={item.key} title={item.title} />
+            <EnvironmentButton
+              key={item.key}
+              title={item.title}
+              active={item.key === envSelected}
+              onPress={() => handleEnvSelected(item.key)}
+            />
           )}
         />
       </View>
