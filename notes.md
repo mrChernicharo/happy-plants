@@ -109,6 +109,10 @@ bom pra tirar o teclado com
 
 #
 
+**yarn add react-native-svg**
+
+import { SvgFromUri } from "react-native-svg";
+
 #
 
 #

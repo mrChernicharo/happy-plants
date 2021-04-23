@@ -66,11 +66,12 @@ const PlantSelect = () => {
           )}
         />
       </View>
-      <View>
+      <View style={styles.plantslist}>
         <FlatList
           showsVerticalScrollIndicator={false}
           numColumns={2}
           data={plants}
+          contentContainerStyle={styles.plantContentContainer}
           renderItem={({ item }) => (
             <PlantCardPrimary key={item.name} data={item} />
           )}
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
   plantslist: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 32,
   },
+  plantContentContainer: {},
 });
