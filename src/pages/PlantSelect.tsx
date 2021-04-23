@@ -42,7 +42,6 @@ const PlantSelect = () => {
   const [envSelected, setEnvSelected] = useState("all");
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(false);
-  const [loadedAll, setLoadedAll] = useState(false);
 
   function handleEnvSelected(key: string) {
     setEnvSelected(key);
@@ -111,9 +110,9 @@ const PlantSelect = () => {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.envslist}
           data={environments}
+          keyExtractor={(item) => String(item.key)}
           renderItem={({ item }) => (
             <EnvironmentButton
-              key={item.key}
               title={item.title}
               active={item.key === envSelected}
               onPress={() => handleEnvSelected(item.key)}
@@ -133,6 +132,7 @@ const PlantSelect = () => {
             loadMore ? <ActivityIndicator color={colors.green} /> : <></>
           }
           data={filteredPlants}
+          keyExtractor={(item) => String(item.id)}
           contentContainerStyle={styles.plantContentContainer}
           renderItem={({ item }) => (
             <PlantCardPrimary key={item.name} data={item} />
