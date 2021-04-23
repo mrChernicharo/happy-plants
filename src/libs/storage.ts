@@ -33,10 +33,37 @@ export async function savePlant(plant: PlantProps): Promise<void> {
     };
 
     await AsyncStorage.setItem(
-      "@happyPlants:plants",
+      "@happyplants:plants",
       JSON.stringify({ ...newPlant, ...oldPlants })
     );
     //
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+export async function loadPlants(): Promise<PlantProps[]> {
+  try {
+    const data = await AsyncStorage.getItem("@happyplants:plants");
+    const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+
+    const plantsSorted = Object.keys(plants)
+      .map((plant) => {
+        return {
+          ...plants[plant].data,
+          hour: format(
+            new Date(plants[plant].data.dateTimeNotification),
+            "HH:mm"
+          ),
+        };
+      })
+      .sort(
+        (a, b) =>
+          new Date(a.dateTimeNotification).getTime() / 1000 -
+          Math.floor(new Date(b.dateTimeNotification).getTime() / 1000)
+      );
+
+    return plantsSorted;
   } catch (err) {
     throw new Error(err);
   }

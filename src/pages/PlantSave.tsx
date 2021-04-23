@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Alert,
@@ -19,7 +19,7 @@ import waterDrop from "../assets/waterdrop.png";
 import AppButton from "../components/AppButton";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-import { PlantProps } from "../libs/storage";
+import { loadPlants, PlantProps, savePlant } from "../libs/storage";
 import { isBefore, format } from "date-fns";
 
 interface Params {
@@ -49,6 +49,18 @@ const PlantSave = () => {
   function handleOpenDatePickerAndroid() {
     setShowDatePicker((oldState) => !oldState);
   }
+
+  async function handleSave() {
+    try {
+      await savePlant({
+        ...plant,
+        dateTimeNotification: selectedDateTime,
+      });
+    } catch {
+      Alert.alert("Some unexpected error happened");
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.plantInfo}>
@@ -85,7 +97,7 @@ const PlantSave = () => {
             )}`}</Text>
           </TouchableOpacity>
         )}
-        <AppButton title="Save plant" onPress={() => {}} />
+        <AppButton title="Save plant" onPress={handleSave} />
       </View>
     </View>
   );
