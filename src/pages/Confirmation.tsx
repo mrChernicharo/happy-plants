@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import AppButton from "../components/AppButton";
+import Loading from "../components/Loading";
 
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";

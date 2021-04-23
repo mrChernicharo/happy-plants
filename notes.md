@@ -107,6 +107,8 @@ bom pra tirar o teclado com
 
 // json-server ./src/services/server.json --host 192.186.0.9 --port 3333
 
+//❯ yarn run json-server ./src/services/server.json --host 127.0.0.1 --port 3333 --delay 1000
+
 #
 
 **yarn add react-native-svg**
