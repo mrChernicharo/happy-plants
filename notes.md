@@ -117,7 +117,7 @@ import { SvgFromUri } from "react-native-svg";
 
 #
 
----
+**❯ expo install lottie-react-native**
 
 ---
 

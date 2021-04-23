@@ -8,6 +8,7 @@ import fonts from "../styles/fonts";
 
 import api from "../services/api";
 import PlantCardPrimary from "../components/PlantCardPrimary";
+import Loading from "../components/Loading";
 
 interface EnvironmentProps {
   key: string;
@@ -28,6 +29,7 @@ interface PlantProps {
 }
 
 const PlantSelect = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
   const [plants, setPlants] = useState<PlantProps[]>([]);
   const [filteredPlants, setfilteredPlants] = useState<PlantProps[]>([]);
@@ -54,6 +56,8 @@ const PlantSelect = () => {
   async function fetchPlants() {
     const { data } = await api.get("plants?_sort=name&_order=asc");
     setPlants(data);
+    setfilteredPlants(data);
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -61,7 +65,9 @@ const PlantSelect = () => {
     fetchPlants();
   }, []);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <View style={styles.container}>
       <View style={styles.header}>
         <Header />
