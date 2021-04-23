@@ -99,9 +99,13 @@ bom pra tirar o teclado com
 
 #
 
-## **❯ yarn add react-native-iphone-x-helper --save**
+##
 
----
+**❯ yarn add react-native-iphone-x-helper --save**
+
+**> yarn add json-server -g**
+
+// json-server ./src/services/server.json --host 192.186.0.9 --port 3333
 
 #
 
