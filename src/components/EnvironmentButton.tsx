@@ -13,8 +13,11 @@ interface EnvBtnProps extends RectButtonProps {
 
 const EnvironmentButton = ({ title, active = false, ...rest }: EnvBtnProps) => {
   return (
-    <RectButton style={styles.container} {...rest}>
-      {title}
+    <RectButton
+      style={[styles.container, active && styles.containerActive]}
+      {...rest}
+    >
+      <Text style={[styles.text, active && styles.textActive]}>{title}</Text>
     </RectButton>
   );
 };
@@ -22,6 +25,23 @@ const EnvironmentButton = ({ title, active = false, ...rest }: EnvBtnProps) => {
 export default EnvironmentButton;
 
 const styles = StyleSheet.create({
-  container: {},
-  text: {},
+  container: {
+    backgroundColor: colors.shape,
+    justifyContent: "center",
+    alignItems: "center",
+    width: 76,
+    height: 40,
+    borderRadius: 12,
+  },
+  containerActive: {
+    backgroundColor: colors.green_light,
+  },
+  text: {
+    color: colors.heading,
+    fontFamily: fonts.text,
+  },
+  textActive: {
+    fontFamily: fonts.text,
+    color: colors.green_dark,
+  },
 });
