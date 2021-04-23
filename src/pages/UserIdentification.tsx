@@ -30,8 +30,12 @@ export default function UserIdentification() {
   async function handleSubmit() {
     if (!name) return Alert.alert("Please tell me your name 😅");
 
-    await AsyncStorage.setItem("@happyplants:user", name);
-    navigation.navigate("Confirmation");
+    try {
+      await AsyncStorage.setItem("@happyplants:user", name);
+      navigation.navigate("Confirmation");
+    } catch {
+      Alert.alert("...Ops. We couldn't save your name 😅");
+    }
   }
 
   function handleInputBlur() {
