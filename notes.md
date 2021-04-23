@@ -99,7 +99,7 @@ bom pra tirar o teclado com
 
 #
 
----
+## **❯ yarn add react-native-iphone-x-helper --save**
 
 ---
 
