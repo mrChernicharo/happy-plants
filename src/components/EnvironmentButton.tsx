@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { StyleSheet, Text } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
@@ -12,12 +12,19 @@ interface EnvBtnProps extends RectButtonProps {
 }
 
 const EnvironmentButton = ({ title, active = false, ...rest }: EnvBtnProps) => {
+  const [isActive, setIsActive] = useState<boolean>(active);
+
+  function handlePress() {
+    setIsActive(!isActive);
+  }
+
   return (
     <RectButton
-      style={[styles.container, active && styles.containerActive]}
+      style={[styles.container, isActive && styles.containerActive]}
+      onPress={handlePress}
       {...rest}
     >
-      <Text style={[styles.text, active && styles.textActive]}>{title}</Text>
+      <Text style={[styles.text, isActive && styles.textActive]}>{title}</Text>
     </RectButton>
   );
 };

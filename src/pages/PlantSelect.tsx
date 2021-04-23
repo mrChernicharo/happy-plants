@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, FlatList } from "react-native";
 import EnvironmentButton from "../components/EnvironmentButton";
 
@@ -6,9 +6,25 @@ import Header from "../components/Header";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
-interface Props {}
+import api from "../services/api";
+
+interface EnvironmentProps {
+  key: string;
+  title: string;
+}
 
 const PlantSelect = () => {
+  const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
+
+  async function fetchEnvs() {
+    const { data } = await api.get("plants_environments");
+    setEnvironments([{ key: "all", title: "All" }, ...data]);
+  }
+
+  useEffect(() => {
+    fetchEnvs();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -21,8 +37,10 @@ const PlantSelect = () => {
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.list}
-        data={[1, 2, 3, 4, 5, 6, 7]}
-        renderItem={() => <EnvironmentButton title="Cozinha" />}
+        data={environments}
+        renderItem={({ item }) => (
+          <EnvironmentButton key={item.key} title={item.title} />
+        )}
       />
     </View>
   );
