@@ -93,4 +93,30 @@ repara o uso particular desses dois caras dentro da pasta routes
 
 bom pra tirar o teclado com
 
-onPress={Keybord.dismiss}
+<TouchableWithoutFeedback onPress={Keybord.dismiss}>
+
+=====================================================================
+
+#
+
+---
+
+---
+
+#
+
+#
+
+#
+
+---
+
+---
+
+#
+
+#
+
+#
+
+#

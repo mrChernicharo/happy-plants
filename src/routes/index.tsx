@@ -1,14 +1,14 @@
 import React from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
-import StackRoutes from "./stack.routes";
+import AppRoutes from "./stack.routes";
 
 interface Props {}
 
 const Routes = () => {
   return (
     <NavigationContainer>
-      <StackRoutes />
+      <AppRoutes />
     </NavigationContainer>
   );
 };

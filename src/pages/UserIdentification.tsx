@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Keyboard,
+  TouchableOpacity,
 } from "react-native";
 import AppButton from "../components/AppButton";
 import colors from "../styles/colors";
@@ -25,6 +26,7 @@ export default function UserIdentification() {
   const navigation = useNavigation();
 
   function handleSubmit() {
+    console.log("handle submit");
     navigation.navigate("Confirmation");
   }
 
@@ -46,9 +48,9 @@ export default function UserIdentification() {
         style={styles.container}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.content}>
-            <View style={styles.form}>
+        <View style={styles.content}>
+          <View style={styles.form}>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View style={styles.header}>
                 <Text style={styles.title}>How can we{"\n"} call you?</Text>
 
@@ -65,13 +67,13 @@ export default function UserIdentification() {
                 onFocus={handleInputFocus}
                 onChangeText={handleInputChange}
               />
+            </TouchableWithoutFeedback>
 
-              <View style={styles.footer}>
-                <AppButton title="confirm" onPress={handleSubmit} />
-              </View>
+            <View style={styles.footer}>
+              <AppButton title="confirm" onPress={handleSubmit} />
             </View>
           </View>
-        </TouchableWithoutFeedback>
+        </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     padding: 10,
     textAlign: "center",
   },
-  button: {},
+  // button: {},
   footer: {
     width: "100%",
     marginTop: 40,
