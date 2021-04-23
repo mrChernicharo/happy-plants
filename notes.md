@@ -99,7 +99,7 @@ bom pra tirar o teclado com
 
 #
 
-##
+# iPhoneX helper
 
 **❯ yarn add react-native-iphone-x-helper --save**
 
@@ -109,24 +109,44 @@ bom pra tirar o teclado com
 
 //❯ yarn run json-server ./src/services/server.json --host 127.0.0.1 --port 3333 --delay 1000
 
-#
+# svg no react native
 
 **yarn add react-native-svg**
 
 import { SvgFromUri } from "react-native-svg";
 
-#
-
-#
+# Animação de Loading
 
 **❯ expo install lottie-react-native**
 
----
+=======================================
+
+# Async Storage
+
+**> yarn add react-native-async-storage/async-storage**
+
+# Passar dados pelo router
+
+MASTER
+function handlePlantSelect(plant: PlantProps) {
+navigation.navigate("PlantSave", { plant });
+}
+
+///
+
+DETAIL
+const route = useRoute();
+const { plant } = route.params as Params;
+
+# date[time]picker
+
+**expo install @react-native-community/datetimepicker**
+
+//import DateTimePicker, { Event } from "@react-native-community/datetimepicker";
+//
 
 #
 
-#
-
-#
+**❯ yarn add date-fns**
 
 #

@@ -13,6 +13,7 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
 import api from "../services/api";
+import { PlantProps } from "../libs/storage";
 import PlantCardPrimary from "../components/PlantCardPrimary";
 import Loading from "../components/Loading";
 import { useNavigation } from "@react-navigation/core";
@@ -21,19 +22,6 @@ import { RectButtonProps } from "react-native-gesture-handler";
 interface EnvironmentProps {
   key: string;
   title: string;
-}
-
-export interface PlantProps {
-  id: string;
-  name: string;
-  about: string;
-  water_tips: string;
-  photo: string;
-  environments: string[];
-  frequency: {
-    times: number;
-    repeatEvery: string;
-  };
 }
 
 const PlantSelect = () => {
@@ -60,14 +48,14 @@ const PlantSelect = () => {
   }
 
   async function fetchEnvs() {
-    const { data } = await api.get(
+    const { data } = await api.get<EnvironmentProps[]>(
       "plants_environments?_sort=title&_order=asc"
     );
     setEnvironments([{ key: "all", title: "All" }, ...data]);
   }
 
   async function fetchPlants() {
-    const { data } = await api.get(
+    const { data } = await api.get<PlantProps[]>(
       `plants?_sort=name&_order=asc&_page=${page}&_limit=${7}`
     );
 
@@ -98,6 +86,9 @@ const PlantSelect = () => {
 
   useEffect(() => {
     fetchEnvs();
+  }, []);
+
+  useEffect(() => {
     fetchPlants();
   }, []);
 
@@ -190,3 +181,17 @@ const styles = StyleSheet.create({
   },
   plantContentContainer: {},
 });
+
+// {return[
+//   {
+//     id: "00",
+//     about: "lorem",
+//     environments: ["living_room"],
+//     frequency: { repeatEvery: "week", times: 3 },
+//     name: "lança default de São Jorge",
+//     photo:
+//       "https://storage.googleapis.com/golden-wind/nextlevelweek/05-plantmanager/1.svg",
+//     water_tips: "molha bonito!",
+//   },
+// ] as PlantProps[]
+// }
