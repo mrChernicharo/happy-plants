@@ -30,22 +30,29 @@ interface PlantProps {
 const PlantSelect = () => {
   const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
   const [plants, setPlants] = useState<PlantProps[]>([]);
+  const [filteredPlants, setfilteredPlants] = useState<PlantProps[]>([]);
   const [envSelected, setEnvSelected] = useState("all");
 
   function handleEnvSelected(key: string) {
     setEnvSelected(key);
+    if (key === "all") {
+      setfilteredPlants(plants);
+    } else {
+      const filtered = plants.filter((plant) =>
+        plant.environments.find((env) => env === key)
+      );
+      setfilteredPlants(filtered);
+    }
   }
 
   async function fetchEnvs() {
     const { data } = await api.get(
       "plants_environments?_sort=title&_order=asc"
     );
-    // console.log(data);
     setEnvironments([{ key: "all", title: "All" }, ...data]);
   }
   async function fetchPlants() {
     const { data } = await api.get("plants?_sort=name&_order=asc");
-    // console.log(data);
     setPlants(data);
   }
 
@@ -82,7 +89,7 @@ const PlantSelect = () => {
         <FlatList
           showsVerticalScrollIndicator={false}
           numColumns={2}
-          data={plants}
+          data={filteredPlants}
           contentContainerStyle={styles.plantContentContainer}
           renderItem={({ item }) => (
             <PlantCardPrimary key={item.name} data={item} />
