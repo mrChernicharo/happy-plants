@@ -9,18 +9,20 @@ import {
   Platform,
   TouchableOpacity,
 } from "react-native";
+import { getBottomSpace } from "react-native-iphone-x-helper";
 
 import { SvgFromUri } from "react-native-svg";
 import waterDrop from "../assets/waterdrop.png";
 import AppButton from "../components/AppButton";
 import colors from "../styles/colors";
+import fonts from "../styles/fonts";
 
 interface Props {}
 
 const PlantSave = () => {
   return (
-    <>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View style={styles.plantInfo}>
         <SvgFromUri uri={""} width={150} height={150} />
         <Text style={styles.plantName}>Plant Name</Text>
         <Text style={styles.plantAbout}>
@@ -33,7 +35,7 @@ const PlantSave = () => {
           <Image style={styles.tipImg} source={waterDrop}></Image>
           <Text style={styles.tipText}>
             Plant Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Exercitationem quisquam similique asperiores id atque! Voluptates,
+            Voluptates,
           </Text>
         </View>
         <Text style={styles.alertLabel}>
@@ -42,7 +44,7 @@ const PlantSave = () => {
 
         <AppButton title="Save plant" onPress={() => {}} />
       </View>
-    </>
+    </View>
   );
 };
 
@@ -52,14 +54,66 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "space-between",
-    alignItems: "center",
     backgroundColor: colors.shape,
   },
-  plantName: {},
-  plantAbout: {},
-  controller: {},
-  tipContainer: {},
-  tipImg: {},
-  tipText: {},
-  alertLabel: {},
+  plantInfo: {
+    flex: 1,
+    paddingHorizontal: 30,
+    paddingVertical: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.shape,
+  },
+  controller: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    backgroundColor: colors.shape,
+    paddingBottom: getBottomSpace() || 20,
+    // borderColor: "red",
+    // borderWidth: 2,
+    // borderStyle: "dashed",
+  },
+  plantName: {
+    fontFamily: fonts.heading,
+    fontSize: 24,
+    color: colors.heading,
+    marginTop: 15,
+  },
+  plantAbout: {
+    textAlign: "center",
+    color: colors.heading,
+    fontFamily: fonts.text,
+    fontSize: 17,
+    marginTop: 10,
+  },
+  tipContainer: {
+    flexDirection: "row",
+    // justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: colors.blue_light,
+    borderRadius: 20,
+    padding: 20,
+    position: "relative",
+    bottom: 60,
+  },
+  tipImg: {
+    width: 56,
+    height: 56,
+  },
+  tipText: {
+    flex: 1,
+    marginLeft: 20,
+    fontFamily: fonts.text,
+    fontSize: 17,
+    textAlign: "justify",
+  },
+  alertLabel: {
+    textAlign: "center",
+    fontFamily: fonts.complement,
+    color: colors.heading,
+    fontSize: 12,
+    marginBottom: 5,
+  },
 });

@@ -15,6 +15,8 @@ import fonts from "../styles/fonts";
 import api from "../services/api";
 import PlantCardPrimary from "../components/PlantCardPrimary";
 import Loading from "../components/Loading";
+import { useNavigation } from "@react-navigation/core";
+import { RectButtonProps } from "react-native-gesture-handler";
 
 interface EnvironmentProps {
   key: string;
@@ -35,6 +37,8 @@ interface PlantProps {
 }
 
 const PlantSelect = () => {
+  const navigation = useNavigation();
+
   const [isLoading, setIsLoading] = useState(true);
   const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
   const [plants, setPlants] = useState<PlantProps[]>([]);
@@ -80,6 +84,9 @@ const PlantSelect = () => {
     setIsLoading(false);
     setLoadMore(false);
   }
+  function handlePlantSelect(plant: PlantProps) {
+    navigation.navigate("PlantSave", { plant });
+  }
 
   function handleFetchMore(distance: number) {
     if (distance < 1) return;
@@ -122,6 +129,15 @@ const PlantSelect = () => {
       </View>
       <View style={styles.plantslist}>
         <FlatList
+          data={filteredPlants}
+          keyExtractor={(item) => String(item.name)}
+          contentContainerStyle={styles.plantContentContainer}
+          renderItem={({ item }) => (
+            <PlantCardPrimary
+              data={item}
+              onPress={() => handlePlantSelect(item)}
+            />
+          )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
           onEndReachedThreshold={0.1}
@@ -131,12 +147,6 @@ const PlantSelect = () => {
           ListFooterComponent={
             loadMore ? <ActivityIndicator color={colors.green} /> : <></>
           }
-          data={filteredPlants}
-          keyExtractor={(item) => String(item.id)}
-          contentContainerStyle={styles.plantContentContainer}
-          renderItem={({ item }) => (
-            <PlantCardPrimary key={item.name} data={item} />
-          )}
         />
       </View>
     </View>
