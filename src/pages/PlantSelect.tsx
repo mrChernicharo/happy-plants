@@ -23,7 +23,7 @@ interface EnvironmentProps {
   title: string;
 }
 
-interface PlantProps {
+export interface PlantProps {
   id: string;
   name: string;
   about: string;
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: "center",
     paddingBottom: 5,
-    marginLeft: 42,
+    paddingHorizontal: 42,
     marginVertical: 32,
   },
   plantslist: {
