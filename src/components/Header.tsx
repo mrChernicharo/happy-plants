@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: "row", // column por padrão
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 20,
+    paddingVertical: 20,
     marginTop: getStatusBarHeight(),
   },
   image: {
