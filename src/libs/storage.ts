@@ -13,6 +13,7 @@ export interface PlantProps {
     repeatEvery: string;
   };
   dateTimeNotification: Date;
+  hour: string;
 }
 
 interface StoragePlantProps {
@@ -62,6 +63,8 @@ export async function loadPlants(): Promise<PlantProps[]> {
           new Date(a.dateTimeNotification).getTime() / 1000 -
           Math.floor(new Date(b.dateTimeNotification).getTime() / 1000)
       );
+
+    console.log(plantsSorted);
 
     return plantsSorted;
   } catch (err) {

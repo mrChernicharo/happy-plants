@@ -9,6 +9,7 @@ import fonts from "../styles/fonts";
 
 import { PlantProps, loadPlants } from "../libs/storage";
 import { formatDistance } from "date-fns";
+import PlantCardSecondary from "../components/PlantCardSecondary";
 
 interface Props {}
 
@@ -50,8 +51,7 @@ const MyPlants = () => {
           data={myPlants}
           keyExtractor={(item) => String(item.id)}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flex: 1 }}
-          renderItem={({ item }) => <Text>{item.name}</Text>}
+          renderItem={({ item }) => <PlantCardSecondary data={item} />}
         />
       </View>
     </View>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.blue,
     paddingHorizontal: 20,
-    textAlign: "justify",
+    // textAlign: "justify",
   },
   plants: {
     flex: 1,

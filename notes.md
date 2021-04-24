@@ -149,4 +149,6 @@ const { plant } = route.params as Params;
 
 **❯ yarn add date-fns**
 
+**❯ yarn add @react-navigation/bottom-tabs**
+
 #
