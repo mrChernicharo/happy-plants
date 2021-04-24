@@ -77,44 +77,49 @@ const PlantSave = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.plantInfo}>
-        <SvgFromUri uri={plant.photo} width={150} height={150} />
-        <Text style={styles.plantName}>{plant.name}</Text>
-        <Text style={styles.plantAbout}>{plant.about}</Text>
-      </View>
-      <View style={styles.controller}>
-        <View style={styles.tipContainer}>
-          <Image style={styles.tipImg} source={waterDrop}></Image>
-          <Text style={styles.tipText}>{plant.water_tips}</Text>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.container}
+    >
+      <View style={styles.container}>
+        <View style={styles.plantInfo}>
+          <SvgFromUri uri={plant.photo} width={150} height={150} />
+          <Text style={styles.plantName}>{plant.name}</Text>
+          <Text style={styles.plantAbout}>{plant.about}</Text>
         </View>
-        <Text style={styles.alertLabel}>
-          Choose the best time to be remembered
-        </Text>
+        <View style={styles.controller}>
+          <View style={styles.tipContainer}>
+            <Image style={styles.tipImg} source={waterDrop}></Image>
+            <Text style={styles.tipText}>{plant.water_tips}</Text>
+          </View>
+          <Text style={styles.alertLabel}>
+            Choose the best time to be remembered
+          </Text>
 
-        {showDatePicker && (
-          <DateTimePicker
-            value={selectedDateTime}
-            mode="time"
-            display="spinner"
-            onChange={handleChangeTime}
-          />
-        )}
+          {showDatePicker && (
+            <DateTimePicker
+              value={selectedDateTime}
+              mode="time"
+              display="spinner"
+              onChange={handleChangeTime}
+            />
+          )}
 
-        {Platform.OS === "android" && (
-          <TouchableOpacity
-            style={styles.datePickerButton}
-            onPress={handleOpenDatePickerAndroid}
-          >
-            <Text style={styles.datePickerText}>{`Change ${format(
-              selectedDateTime,
-              "HH:ss"
-            )}`}</Text>
-          </TouchableOpacity>
-        )}
-        <AppButton title="Save plant" onPress={handleSave} />
+          {Platform.OS === "android" && (
+            <TouchableOpacity
+              style={styles.datePickerButton}
+              onPress={handleOpenDatePickerAndroid}
+            >
+              <Text style={styles.datePickerText}>{`Change ${format(
+                selectedDateTime,
+                "HH:ss"
+              )}`}</Text>
+            </TouchableOpacity>
+          )}
+          <AppButton title="Save plant" onPress={handleSave} />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

@@ -10,6 +10,7 @@ import fonts from "../styles/fonts";
 import { PlantProps, loadPlants } from "../libs/storage";
 import { formatDistance } from "date-fns";
 import PlantCardSecondary from "../components/PlantCardSecondary";
+import Loading from "../components/Loading";
 
 interface Props {}
 
@@ -37,6 +38,7 @@ const MyPlants = () => {
     loadStoredData();
   }, []);
 
+  if (loading) return <Loading />;
   return (
     <View style={styles.container}>
       <Header />

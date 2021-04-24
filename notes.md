@@ -151,4 +151,15 @@ const { plant } = route.params as Params;
 
 **❯ yarn add @react-navigation/bottom-tabs**
 
-#
+==================================
+
+==================================
+
+# keyboard não funciona no iOS?
+
+Vai em:
+
+Simulator > Hardware > Keyboard >
+
+desmarque (ou marque e desmarque) a opção
+✔ connect hardware keyboard
