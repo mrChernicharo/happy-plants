@@ -17,6 +17,7 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ConfirmationParams } from "./Confirmation";
 
 interface Props {}
 
@@ -32,7 +33,13 @@ export default function UserIdentification() {
 
     try {
       await AsyncStorage.setItem("@happyplants:user", name);
-      navigation.navigate("Confirmation");
+      navigation.navigate("Confirmation", {
+        title: "Great!",
+        subtitle: "Now let us begin taking care of your babies.",
+        buttonTitle: "Let's Go",
+        icon: "smile",
+        nextScreen: "PlantSelect",
+      } as ConfirmationParams);
     } catch {
       Alert.alert("...Ops. We couldn't save your name 😅");
     }

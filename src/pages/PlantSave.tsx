@@ -12,25 +12,31 @@ import {
 import DateTimePicker, { Event } from "@react-native-community/datetimepicker";
 
 import { getBottomSpace } from "react-native-iphone-x-helper";
-import { useRoute } from "@react-navigation/core";
+import { useNavigation, useRoute } from "@react-navigation/core";
 
 import { SvgFromUri } from "react-native-svg";
+import { isBefore, format } from "date-fns";
+import { PlantProps, savePlant } from "../libs/storage";
+
 import waterDrop from "../assets/waterdrop.png";
 import AppButton from "../components/AppButton";
+
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-import { loadPlants, PlantProps, savePlant } from "../libs/storage";
-import { isBefore, format } from "date-fns";
+
+import { ConfirmationParams } from "./Confirmation";
 
 interface Params {
   plant: PlantProps;
 }
 
 const PlantSave = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  const { plant } = route.params as Params;
   const [selectedDateTime, setSelectedDateTime] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(Platform.OS === "ios");
-  const route = useRoute();
-  const { plant } = route.params as Params;
 
   function handleChangeTime(event: Event, dateTime: Date | undefined) {
     if (Platform.OS === "android") {
@@ -56,6 +62,15 @@ const PlantSave = () => {
         ...plant,
         dateTimeNotification: selectedDateTime,
       });
+
+      navigation.navigate("Confirmation", {
+        title: "All Right!",
+        subtitle:
+          "Save succesful! Now relax and let us remind you whenever your plants are thirsty",
+        buttonTitle: "Thanks! :D",
+        icon: "hug",
+        nextScreen: "MyPlants",
+      } as ConfirmationParams);
     } catch {
       Alert.alert("Some unexpected error happened");
     }
