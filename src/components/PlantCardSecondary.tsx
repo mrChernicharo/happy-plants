@@ -8,16 +8,20 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
 interface PlantPropsSecondary extends RectButtonProps {
+  handleRemove: () => void;
   data: {
     name: string;
     photo: string;
     hour: string;
   };
-  handleDelete: () => void;
 }
 
-const PlantCardSecondary = ({ data, ...rest }: PlantPropsSecondary) => {
-  function handleDelete() {}
+const PlantCardSecondary = ({
+  handleRemove,
+  data,
+  ...rest
+}: PlantPropsSecondary) => {
+  // function handleRemove() {}
 
   return (
     <Swipeable
@@ -25,7 +29,7 @@ const PlantCardSecondary = ({ data, ...rest }: PlantPropsSecondary) => {
       renderRightActions={() => (
         <Animated.View>
           <View>
-            <RectButton style={styles.deleteButton} onPress={handleDelete}>
+            <RectButton style={styles.deleteButton} onPress={handleRemove}>
               <Feather name="trash" size={32} color={colors.white} />
             </RectButton>
           </View>

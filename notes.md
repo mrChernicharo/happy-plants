@@ -163,3 +163,33 @@ Simulator > Hardware > Keyboard >
 
 desmarque (ou marque e desmarque) a opção
 ✔ connect hardware keyboard
+
+# aprenda de vez por todas a passar funções via props
+
+```
+interface PlantPropsSecondary extends RectButtonProps {
+  handleRemove: () => void;
+  data: {
+    name: string;
+    photo: string;
+    hour: string;
+  };
+}
+
+const PlantCardSecondary = ({
+  handleRemove,
+  data,
+  ...rest
+}: PlantPropsSecondary) => {
+  // function handleRemove() {}
+
+  return (
+    <Swipeable
+      overshootRight={false}
+      renderRightActions={() => (
+        <Animated.View>
+          <View>
+            <RectButton style={styles.deleteButton} onPress={handleRemove}>
+              <Feather name="trash" size={32} color={colors.white} />
+            </RectButton>
+```
