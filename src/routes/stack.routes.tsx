@@ -6,15 +6,15 @@ import colors from "../styles/colors";
 import Welcome from "../pages/Welcome";
 import UserIdentification from "../pages/UserIdentification";
 import Confirmation from "../pages/Confirmation";
-import PlantSelect from "../pages/PlantSelect";
 import PlantSave from "../pages/PlantSave";
 import MyPlants from "../pages/MyPlants";
+import AuthRoutes from "./tab.routes";
 
 const stackRoutes = createStackNavigator();
 
 interface Props {}
 
-const AppRoutes: React.FC<any> = () => {
+const StackRoutes: React.FC<any> = () => {
   return (
     <stackRoutes.Navigator
       headerMode="none"
@@ -30,11 +30,15 @@ const AppRoutes: React.FC<any> = () => {
         component={UserIdentification}
       />
       <stackRoutes.Screen name="MyPlants" component={MyPlants} />
+
       <stackRoutes.Screen name="Confirmation" component={Confirmation} />
-      <stackRoutes.Screen name="PlantSelect" component={PlantSelect} />
+
+      {/* pulo do gato! */}
+      <stackRoutes.Screen name="PlantSelect" component={AuthRoutes} />
+
       <stackRoutes.Screen name="PlantSave" component={PlantSave} />
     </stackRoutes.Navigator>
   );
 };
 
-export default AppRoutes;
+export default StackRoutes;

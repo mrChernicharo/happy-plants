@@ -69,7 +69,7 @@ const PlantSave = () => {
           "Save succesful! Now relax and let us remind you whenever your plants are thirsty",
         buttonTitle: "Thanks! :D",
         icon: "hug",
-        nextScreen: "MyPlants",
+        nextScreen: "PlantSelect",
       } as ConfirmationParams);
     } catch {
       Alert.alert("Some unexpected error happened");
